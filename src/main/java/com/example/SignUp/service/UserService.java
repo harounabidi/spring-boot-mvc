@@ -6,13 +6,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-
   private final UsersRepository usersRepository;
-
   public UserService(UsersRepository usersRepository) {
     this.usersRepository = usersRepository;
   }
-
 
   public UserModel userRegistration(String username, String password) {
     if (username == null || password == null) {

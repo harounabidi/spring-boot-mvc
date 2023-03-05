@@ -31,5 +31,4 @@ public class UserController {
     return  registeredUser == null ? "error_page" : "redirect:/";
   }
 
-
 }
