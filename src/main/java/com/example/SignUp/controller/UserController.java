@@ -20,15 +20,19 @@ public class UserController {
   @GetMapping("/signup")
   public String getSignUpPage(Model model) {
     model.addAttribute("signupRequest", new UserModel());
-    return "SignUpPage";
+    return "signUpPage";
   }
 
+  @GetMapping("/congrats")
+  public String getCongratsPage() {
+    return "Congrats";
+  }
   @PostMapping("/signup")
   public String signUp(@ModelAttribute UserModel userModel) {
 
     UserModel registeredUser = userService.userRegistration(userModel.getUsername(), userModel.getPassword());
 
-    return  registeredUser == null ? "error_page" : "redirect:/";
+    return  registeredUser == null ? "errorPage" : "redirect:/congrats";
   }
 
 }
